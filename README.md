@@ -8,6 +8,6 @@
 - Logged in users can upload and give an up votes to photos on any stream
 
 ### Considerations
-- [] Require [reCAPTCHA](https://www.google.com/recaptcha/about/) on auth & upload forms.
-- [] Let feed owner disable uploads
-- [] Hide guest uploads from public feed
+- [ ] Require [reCAPTCHA](https://www.google.com/recaptcha/about/) on auth & upload forms.
+- [ ] Let feed owner disable uploads
+- [ ] Hide guest uploads from public feed
