@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}New item{% endblock %}
+{% block content %}
+    <h1>New item</h1>
+    <form action="/feed/{{ secret }}" method="post" enctype="multipart/form-data">
+
+
+        <div class="file is-boxed">
+            <label class="file-label">
+              <input class="file-input" type="file" name="image" accept="image/*">
+              <span class="file-cta">
+                <span class="file-icon">
+                  <i class="fas fa-upload"></i>
+                </span>
+                <span class="file-label">
+                  Choose an image
+                </span>
+              </span>
+            </label>
+          </div>
+          
+          <div class="field">
+            <label class="label">Description</label>
+            <div class="control has-icons-left has-icons-right">
+              <input class="input" type="text" name="description">
+              <span class="icon is-small is-left">
+                <i class="fas fa-key"></i>
+              </span>
+            </div>
+          </div>
+          <div class="control">
+            <button type="submit" class="button is-link">Send</button>
+          </div>
+    </form>
+{% endblock %}
+

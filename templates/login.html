@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Login{% endblock %}
+{% block content %}
+    <h1>Login</h1>
+    <form action="/login" method="post">
+
+        <div class="field">
+            <label class="label">Username</label>
+            <div class="control has-icons-left has-icons-right">
+              <input class="input" type="text" name="username">
+              <span class="icon is-small is-left">
+                <i class="fas fa-user"></i>
+              </span>
+            </div>
+          </div>
+          
+          <div class="field">
+            <label class="label">Password</label>
+            <div class="control has-icons-left has-icons-right">
+              <input class="input" type="password" name="password">
+              <span class="icon is-small is-left">
+                <i class="fas fa-key"></i>
+              </span>
+            </div>
+          </div>
+          <div class="control">
+            <button type="submit" class="button is-link">Login</button>
+          </div>
+    </form>
+    <a href="/signup">Create new account</a>
+{% endblock %}
+

@@ -6,6 +6,8 @@
 - Logged in users can create their stream with passphrase (eg. platform.com/feed/< passphrase >)
 - Anyone knowing the passphrase can view created stream without login
 - Logged in users can upload and give upvotes to photos on any stream
+- Users can remove their own uploads
+- Feed creators can delete the whole feed or individual items
 
 ### Considerations
 - [ ] Light [Preact](https://preactjs.com/) front to render feeds & update live
@@ -13,3 +15,38 @@
 - [ ] Require [reCAPTCHA](https://www.google.com/recaptcha/about/) on auth & upload forms.
 - [ ] Let feed owner disable uploads
 - [ ] Hide guest uploads from public feed
+
+## Running the environment
+
+Make sure you are running PostgreSQL instance locally.
+Git clone
+
+Create .env file
+```python
+DATABASE_URL=< database url >
+SECRET_KEY=< string >
+```
+
+Run virtual environment in the project folder
+```python
+source venv/bin/activate
+```
+
+Install project requirements 
+```python
+pip install -r requirements.txt
+```
+
+Run flask
+```python
+flask run
+```
+
+## Images of the running project
+![Vuo](https://raw.githubusercontent.com/jaost/tsoha-vuo/master/documentation/VuoIndex.png)
+![Vuo](https://raw.githubusercontent.com/jaost/tsoha-vuo/master/documentation/VuoLogin.png)
+![Vuo](https://raw.githubusercontent.com/jaost/tsoha-vuo/master/documentation/VuoNewFeed.png)
+![Vuo](https://raw.githubusercontent.com/jaost/tsoha-vuo/master/documentation/VuoFeed.png)
+![Vuo](https://raw.githubusercontent.com/jaost/tsoha-vuo/master/documentation/VuoNewItem.png)
+![Vuo](https://raw.githubusercontent.com/jaost/tsoha-vuo/master/documentation/VuoFeed2.png)
+
