@@ -37,6 +37,11 @@ Install project requirements
 pip install -r requirements.txt
 ```
 
+Drop & create tables to database
+```python
+psql < schema.sql
+```
+
 Run flask
 ```python
 flask run

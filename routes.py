@@ -111,6 +111,8 @@ def signup():
         password = request.form["password"]
         if len(username) > 50 or len(password) > 50:
             return render_template("signup.html",error="Username & password should be under 50 characters.")
+        if len(username) < 4 or len(password) < 4:
+            return render_template("signup.html",error="Username & password should be over 3 characters.")
         if users.register(username,password):
             return redirect("/")
         else:
