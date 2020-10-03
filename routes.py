@@ -35,8 +35,10 @@ def create_feed():
 @app.route('/feed/<string:secret>/<int:id>', methods=["post", "delete"])
 def modify_item(secret, id):
     if request.method == "POST":
-        if request.form["action"] == 'delete' and feeds.delete_item(secret, id):
+        if request.form.get("action", False) == "delete" and feeds.delete_item(secret, id):
             return redirect("/feed/"+secret)
+        if request.form.get("action", False) == "vote" and feeds.vote_item(secret, id):
+            return redirect("/feed/"+secret+"#I-"+id)
         else:
             abort(400)
     else:

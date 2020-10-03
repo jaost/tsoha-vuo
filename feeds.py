@@ -40,7 +40,7 @@ def get_feed(secret):
     return result.fetchone()
 
 def get_items(secret):
-    sql = "SELECT I.id as id, I.description as description, I.path as path, I.created_at as created_at FROM items I, feeds F WHERE I.feed_id=F.id AND F.secret=:secret ORDER BY I.created_at DESC"
+    sql = "SELECT I.id as id, I.description as description, I.path as path, I.created_at as created_at, I.user_id as user_id FROM items I, feeds F WHERE I.feed_id=F.id AND F.secret=:secret ORDER BY I.created_at DESC"
     result = db.session.execute(sql, {"secret":secret})
     return result.fetchall()
 
@@ -78,10 +78,12 @@ def delete_item(secret, id):
     db.session.commit()
     return True
 
-def vote_item(feed_id, item_id):
+
+
+def vote_item(secret, item_id):
     user_id = users.user_id()
-    sql = "SELECT id FROM items WHERE id=:id AND feed=:feed_id"
-    result = db.session.execute(sql, {"feed_id":feed_id, "id":item_id})
+    sql = "SELECT id FROM items I, feeds F WHERE I.feed_id=F.id AND F.secret=:secret"
+    result = db.session.execute(sql, {"secret":secret, "id":item_id})
     item = result.fetchone()
     if user_id == 0 or item == None:
         return False
