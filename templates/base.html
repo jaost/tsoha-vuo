@@ -88,7 +88,10 @@
   <header>
     {% block header %}{% endblock %}
     {% if error %}
-        <p class="notification is-danger"><strong>Error:</strong> {{ error }}
+        <p class="notification is-danger"><strong>Error:</strong> 
+          {% for error_item in error %}
+          <br>{{error_item}}
+          {% endfor %}
     {% endif %}
   </header>
   <div class="container">

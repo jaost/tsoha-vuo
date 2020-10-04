@@ -5,10 +5,13 @@
     <h2 class="subtitle">
       {{ feed['description']}}
     </h2>
+    <p>Share: <input type="text" value="{{ request.base_url }}"/></p>
+    <br>
     {% if session.user_id == feed['user_id'] %}
+    <br>
     <form action="{{ secret }}" method="POST">
       <input type="hidden" name="action" value="delete" />
-      <button type="submit"><i class="far fa-trash-alt"></i></button>
+      <button type="submit"><i class="far fa-trash-alt"></i> Delete feed & images</button>
     </form>
     {% endif %}
     <div style="max-width: 800px;" class="my-5">
@@ -48,7 +51,7 @@
     {% endfor %}
 
     </div>
-    <a href="{{ secret }}/new">Create new item</a>
+    <a href="{{ secret }}/new" class="button is-link">Create new item</a>
 
 {% endblock %}
 

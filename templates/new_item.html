@@ -3,11 +3,10 @@
 {% block content %}
     <h1>New item</h1>
     <form action="/feed/{{ secret }}" method="post" enctype="multipart/form-data">
-
-
+        <input type="hidden" name="action" value="new_item" />
         <div class="file is-boxed">
             <label class="file-label">
-              <input class="file-input" type="file" name="image" accept="image/*">
+              <input class="file-input" type="file" name="image" accept="image/*" value="{{image}}">
               <span class="file-cta">
                 <span class="file-icon">
                   <i class="fas fa-upload"></i>
@@ -22,7 +21,7 @@
           <div class="field">
             <label class="label">Description</label>
             <div class="control has-icons-left has-icons-right">
-              <input class="input" type="text" name="description">
+              <input class="input" type="text" name="description" value="{{description}}">
               <span class="icon is-small is-left">
                 <i class="fas fa-key"></i>
               </span>

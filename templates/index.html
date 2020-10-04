@@ -3,9 +3,26 @@
 {% block content %}
   <h1>Welcome to Vuo!</h1>
   <br>
+  {% if session.user_id %}
+
+
+    {% if feed_list|length > 0 %}
+      <h2>Your feeds</h2>
+      <ul>
+        {% for feed in feed_list %}
+          <li><a href="/feed/{{ feed['secret'] }}">{{ feed['title'] }} feed</a></li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <a class="button is-primary" href="/feed">
+        Create new feed!
+      </a>
+    {% endif %}
+  {% else %}
   <p>
     Vuo is super simple image feed sharing platform.<br>
-    Loggin in is not mandatory! Most feeds are visible without account. 
+    Create your own feed or access friends feed with their secret url.<br>
+    Loggin in is not mandatory! Most feeds are visible without account (if you know the secret url :)). 
   </p>
   <br>
   <p>
@@ -16,4 +33,5 @@
   <p>
     Have phun!
   </p>    
+  {% endif %}
 {% endblock %}
