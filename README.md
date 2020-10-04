@@ -1,6 +1,8 @@
 # Vuo
 ## Share photostreams with a passphrase
 
+Vuo is made for sharing your photos & snippets to your selected audience. Users create a feed, share their secret url and anybody can upload their photos to the stream. Awesome place to share your event photos with all the guests to make sure all memories are kept safe :)
+
 ### Features
 - User login
 - Logged in users can create their stream with passphrase (eg. platform.com/feed/< passphrase >)
