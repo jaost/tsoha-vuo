@@ -8,11 +8,12 @@ Vuo is made for sharing your photos & snippets to your selected audience. Users 
 - Logged in users can create their stream with passphrase (eg. platform.com/feed/< passphrase >)
 - Anyone knowing the passphrase can view created stream without login
 - Logged in users can upload photos to any stream
+- Users can upvote items & see upvote counts on items
 - Users can remove their own uploads
 - Feed creators can delete the whole feed or individual items
 
 ### Considerations
-- [ ] Users can upvote photos
+- [x] Users can upvote items
 - [ ] Light [Preact](https://preactjs.com/) front to render feeds & update live
 - [ ] [Ably](https://www.ably.io/) integration to get feed updates in real time
 - [ ] Require [reCAPTCHA](https://www.google.com/recaptcha/about/) on auth & upload forms.
