@@ -1,5 +1,4 @@
 import os
-import sys
 
 import users
 from db import db
@@ -133,16 +132,13 @@ def vote_item(secret, item_id):
     sql = "SELECT I.id, I.feed_id FROM items I, feeds F WHERE I.id=:id AND F.secret=:secret"
     result = db.session.execute(sql, {"secret": secret, "id": item_id})
     item = result.fetchone()
-    print('This is error output 2' + str(item_id), file=sys.stderr)
     if user_id == 0 or item == None:
         return False
-    print('This is error output 3', file=sys.stderr)
     sql = "SELECT id FROM votes WHERE feed_id=:feed_id AND item_id=:item_id AND user_id=:user_id"
     result = db.session.execute(
         sql, {"feed_id": item['feed_id'], "item_id": item_id, "user_id": user_id}
     )
     vote = result.fetchone()
-    print('This is error output', file=sys.stderr)
     if vote == None:
         sql = "INSERT INTO votes (feed_id, item_id, user_id) VALUES (:feed_id, :item_id, :user_id)"
     else:

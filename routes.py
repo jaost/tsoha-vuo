@@ -8,8 +8,6 @@ from slugify import slugify
 import calendar
 import time
 
-import sys
-
 
 @app.route("/")
 def index():
