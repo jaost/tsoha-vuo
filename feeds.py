@@ -38,11 +38,11 @@ def delete_feed(secret):
     for item in items:
         if os.path.exists(item["path"]):
             os.remove(item["path"])
-
-    sql = "DELETE from items WHERE feed_id=:feed_id"
+            
+    sql = "DELETE FROM votes WHERE feed_id=:feed_id"
     db.session.execute(sql, {"feed_id": feed["id"]})
     db.session.commit()
-    sql = "DELETE FROM votes WHERE feed_id=:feed_id"
+    sql = "DELETE from items WHERE feed_id=:feed_id"
     db.session.execute(sql, {"feed_id": feed["id"]})
     db.session.commit()
     sql = "DELETE from feeds WHERE id=:id"
