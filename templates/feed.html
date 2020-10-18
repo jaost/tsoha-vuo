@@ -26,13 +26,12 @@
         <div class="card-content">
           
           <div class="content">
-            {% if session.user_id and false %}
+            {% if session.user_id %}
             <form action="{{ secret }}/{{ item['id'] }}" method="POST">
               <input type="hidden" name="action" value="vote" />
-              <button type="submit"><i class="far fa-heart"></i></button>
+              <button type="submit"><i class="far fa-heart"></i> {{ votes | selectattr('item_id', 'equalto', item['id']) | list | length }}</button>
             </form>
             {% endif %}
-
             {{ item['description'] }}
             <br>
             <time>{{ item['created_at'].strftime('%d.%m.%Y %H:%M') }}</time>

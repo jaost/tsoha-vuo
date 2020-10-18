@@ -8,10 +8,11 @@ from slugify import slugify
 import calendar
 import time
 
+import sys
+
 
 @app.route("/")
 def index():
-
     if users.user_id() != 0:
         feed_list = feeds.get_feeds()
     else:
@@ -55,7 +56,7 @@ def modify_item(secret, id):
         ):
             return redirect("/feed/" + secret)
         if request.form.get("action", False) == "vote" and feeds.vote_item(secret, id):
-            return redirect("/feed/" + secret + "#I-" + id)
+            return redirect("/feed/" + secret + "#I-" + str(id))
         else:
             abort(400)
     else:
@@ -78,7 +79,8 @@ def feed(secret):
             return redirect("/feed")
         else:
             items = feeds.get_items(secret)
-            return render_template("feed.html", feed=feed, items=items, secret=secret)
+            votes = feeds.get_feed_votes(secret)
+            return render_template("feed.html", feed=feed, items=items, votes=votes, secret=secret)
     if request.method == "POST":
         if request.form.get("action", False) == "delete":
             if feeds.delete_feed(secret):
