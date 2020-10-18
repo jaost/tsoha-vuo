@@ -1,8 +1,11 @@
 {% extends "base.html" %}
 {% block title %}New feed{% endblock %}
 {% block content %}
-    <h1>New feed</h1>
-
+    <h1 class="subtitle is-3">New feed</h1>
+    <p class="subtitle is-5">
+      Here you can create your feed. <br />
+      Secret will determine your url (/feed/<strong>your-secret</strong>)
+    </p>
     <form action="/feed" method="post">
 
         <div class="field">
@@ -27,11 +30,8 @@
 
           <div class="field">
             <label class="label">Description</label>
-            <div class="control has-icons-left has-icons-right">
-              <input class="input" type="text" name="description" value="{{description}}">
-              <span class="icon is-small is-left">
-                <i class="fas fa-comment"></i>
-              </span>
+            <div class="control">
+              <textarea class="textarea" name="description">{{description}}</textarea>
             </div>
           </div>
 

@@ -3,3 +3,4 @@ __pycache__
 venv
 *:Zone.Identifier
 static/uploads/*
+.vscode

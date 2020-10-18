@@ -51,7 +51,7 @@
     {% endfor %}
 
     </div>
-    <a href="{{ secret }}/new" class="button is-link">Create new item</a>
+    {% if session.user_id  %}<a href="{{ secret }}/new" id="new-item" class="button is-link pulse">Create new item</a>{% endif %}
 
 {% endblock %}
 
